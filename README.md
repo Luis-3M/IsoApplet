@@ -27,7 +27,7 @@ After cloning the IsoApplet repository, all you have to do is:
 * Assuming you have Apache ant installed on your system, you can now just invoke `ant` to produce the cap file.
   This will also compile ant-javacard when invoked for the first time.
   
-Or, You can always use the IsoApplet_Install script to generate the CAP file by following the instructions on it.
+**Or, You can always use the IsoApplet_Install script to generate the CAP file by following the instructions on it.**
 
 Installation
 ============
