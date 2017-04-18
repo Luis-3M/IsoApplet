@@ -41,12 +41,12 @@ def main():
 	os.chdir(os.path.expanduser('~'))
 	menu()
 	try:
-		opt = raw_input("Do you have '\033[4m'ANT'\033[0m', '\033[4m'GIT'\033[0m' and '\033[4m'GGPRO'\033[0m' installed? ")
-		if opt.lower() == "yes":
+		opt = raw_input("Do you have '\033[4m'ANT'\033[0m' and '\033[4m'GIT'\033[0m' installed? ")
+		if opt.lower() == "yes" or opt.lower() == "y":
 			getPackages()
 			buildCAP()
 			print
-		elif opt.lower() == "no":
+		elif opt.lower() == "no" or opt.lower() == "n":
 			print "Please install them first.."
 		else:
 			print "Really? Don't even think about it.. Yes or No mate."
