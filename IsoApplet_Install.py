@@ -9,7 +9,6 @@ def menu():
 	return
 
 def getPackages():
-	#os.system('curl -L https://www.dropbox.com/sh/ztdqovz06z5ylmz/AADdrpO5MqVOae-2E7YsTCQca/src/javacard_2.2.2.tar.gz?dl=1 -O -J')
 	os.system('curl -L 	https://www.dropbox.com/s/x5ri4wzc2khgm2v/javacard_2.2.2.tar.gz?dl=1 -O -J')
 	os.system('tar -xf javacard_2.2.2.tar.gz')
 	os.system('rm -rf javacard_2.2.2.tar.gz')
