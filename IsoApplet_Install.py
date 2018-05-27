@@ -9,7 +9,7 @@ def menu():
 	return
 
 def getPackages():
-	os.system('curl -L 	https://www.dropbox.com/s/x5ri4wzc2khgm2v/javacard_2.2.2.tar.gz?dl=1 -O -J')
+	os.system('curl -L https://www.dropbox.com/s/wbj963ya1shpvg2/javacard_2.2.2.tar.gz?dl=1 -O -J')
 	os.system('tar -xf javacard_2.2.2.tar.gz')
 	os.system('rm -rf javacard_2.2.2.tar.gz')
 	os.system('git clone https://github.com/philipWendland/IsoApplet.git')
@@ -22,16 +22,19 @@ def buildCAP():
 	os.system('ant')
 	os.system('mv IsoApplet.cap ~/')
 	os.chdir(os.path.expanduser('~'))
-	os.system('rm -rf IsoApplet/ javacard/')
+	os.system('rm -rf IsoApplet/ Source/')
 	print
 	print '\033[92m'+str(os.path.abspath('IsoApplet.cap'))+'\033[0m'
 	return
 
 def xmlParse():
+	homePath = str(os.path.expanduser('~'))
 	tree = ET.parse('build.xml')
 	root = tree.getroot()
 	for javacard in root.iter('javacard'):
-		javacard.set('jckit','~/javacard/javacard_2_2_2')
+		javacard.set('jckit', homePath+'/Source/javacard/javacard_2_2_2')
+	for cap in root.iter('cap'):
+                cap.set('jckit', homePath+'/Source/javacard/javacard_2_2_2')
 	tree.write('build.xml')
 	return
 
