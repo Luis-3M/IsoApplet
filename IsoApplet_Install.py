@@ -31,7 +31,7 @@ def xmlParse():
 	tree = ET.parse('build.xml')
 	root = tree.getroot()
 	for javacard in root.iter('javacard'):
-		javacard.set('jckit','../javacard/javacard_2_2_2')
+		javacard.set('jckit','~/javacard/javacard_2_2_2')
 	tree.write('build.xml')
 	return
 
