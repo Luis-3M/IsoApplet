@@ -24,7 +24,6 @@ def buildCAP():
 	os.chdir(os.path.expanduser('~'))
 	os.system('rm -rf IsoApplet/ Source/')
 	print
-	print '\033[92m'+str(os.path.abspath('IsoApplet.cap'))+'\033[0m'
 	return
 
 def xmlParse():
@@ -38,6 +37,12 @@ def xmlParse():
 	tree.write('build.xml')
 	return
 
+def listCAP():
+	isoappletCAP = os.path.exists('IsoApplet.cap')
+	if isoappletCAP:
+	        print '\033[92m'+str(os.path.abspath('IsoApplet.cap'))+'\033[0m'
+	else:
+		print '\033[91m'+'File IsoApplet.cap does not exists.'+'\033[0m'
 def main():
 	start = time.time()
 	os.system('clear')
@@ -48,6 +53,7 @@ def main():
 		if opt.lower() == "yes" or opt.lower() == "y":
 			getPackages()
 			buildCAP()
+			listCAP()
 			print
 		elif opt.lower() == "no" or opt.lower() == "n":
 			print "Please install them first.."
